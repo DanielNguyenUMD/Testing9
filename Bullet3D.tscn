@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://pyesukbqfx2i"]
+
+[node name="Bullet3D" type="Area3D"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0qmiu5cu842"]
+[gd_scene load_steps=6 format=3 uid="uid://b0qmiu5cu842"]
 
 [ext_resource type="Material" uid="uid://c16tlwnmk0j6a" path="res://Materials/BasicTerrain.tres" id="1_wrm1d"]
 [ext_resource type="Material" uid="uid://y87l148keva" path="res://Materials/BridgeTerrain.tres" id="2_3dryh"]
 [ext_resource type="PackedScene" uid="uid://dexo37vqifhhy" path="res://Scenes/player.tscn" id="3_wowpa"]
+[ext_resource type="Texture2D" uid="uid://cuyh8hew637ju" path="res://player/reticle.png" id="4_3dryh"]
 
 [sub_resource type="Environment" id="Environment_80nbo"]
 background_mode = 1
@@ -37,13 +38,13 @@ material = ExtResource("2_3dryh")
 [node name="Bridge2" type="CSGBox3D" parent="."]
 transform = Transform3D(2.6077032e-08, 0, 0.6091313, 0, 0.14999999, 0, -0.45000008, 0, 4.0978193e-08, 17.123268, -0.9530462, 22.598692)
 use_collision = true
-size = Vector3(10, 10, 15.2)
+size = Vector3(10, 10, 15)
 material = ExtResource("2_3dryh")
 
 [node name="Bridge3" type="CSGBox3D" parent="."]
 transform = Transform3D(2.6077032e-08, 0, 0.6091313, 0, 0.14999999, 0, -0.45000008, 0, 4.0978193e-08, -9.676733, -0.9530462, 28.398693)
 use_collision = true
-size = Vector3(10, 10, 15.2)
+size = Vector3(10, 10, 15)
 material = ExtResource("2_3dryh")
 
 [node name="Bridge4" type="CSGBox3D" parent="."]
@@ -85,7 +86,7 @@ material = ExtResource("1_wrm1d")
 [node name="Terrain4" type="CSGBox3D" parent="."]
 transform = Transform3D(-1.2881307e-07, 0, 3.4850004, 0, 1, 0, -2.9468997, 0, -1.5233421e-07, -41.5455, -5.2, -6.4415903)
 use_collision = true
-size = Vector3(12.2, 10, 10.6)
+size = Vector3(15, 10, 10.6)
 material = ExtResource("1_wrm1d")
 
 [node name="Terrain5" type="CSGBox3D" parent="."]
@@ -105,3 +106,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.8660255, 0.50000006, 0, -0.50000006, 0.8660255, 0, 9.1, 10.6)
+
+[node name="Reticle" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -22.5
+offset_right = 22.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_3dryh")
+expand_mode = 1
