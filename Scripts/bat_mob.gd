@@ -1,7 +1,7 @@
 extends RigidBody3D
 
 @onready var bat_model = %bat_model
-var spd = randf_range(2.0, 10.0)
+var spd = randf_range(2.0, 4.0)
 
 @onready var player = get_node("/root/game/Player")
 
@@ -32,7 +32,15 @@ func _physics_process(_delta):
 	if dist_to_player > 0.5:
 		var look_target = player.global_position
 		look_target.y = global_position.y
+		
+		if abs(look_target.x - global_position.x) < 0.1 and abs(look_target.z - global_position.z) < 0.1:
+			look_target.x += 0.1
+		else:
+			look_target.y = global_position.y
+		
 		bat_model.look_at(look_target, Vector3.UP)
+		
+		
 	
 	bat_model.rotate_y(PI)
 	

@@ -25,7 +25,7 @@ func _physics_process(delta):
 	
 	#ONLY EDIT BELOW FOR BASIC PLAYER MOVEMENT
 		
-	var spd = 5.5
+	var spd = 7
 	
 	var input_dir_2D = Input.get_vector(
 		"move_left", "move_right", "move_forward", "move_back"
@@ -42,9 +42,9 @@ func _physics_process(delta):
 	
 	#ONLY EDIT BELOW FOR JUMP/FALL
 	
-	velocity.y -= 5.0 * delta
+	velocity.y -= 9.8 * delta
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y += 2.5
+		velocity.y += 5.0
 	elif Input.is_action_just_pressed("jump") and velocity.y > 0.0:
 		velocity.y = 5.0
 	
