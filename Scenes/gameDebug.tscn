@@ -106,15 +106,14 @@ material = ExtResource("1_jiqfd")
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.9305527, 0.65506697, 11.018199)
 
 [node name="Skeleton3D" parent="Bat_Mob/bat_model/Armature" index="0"]
-bones/0/position = Vector3(0, -0.008831432, 0)
-bones/1/rotation = Quaternion(-0.033279475, 0.19276169, -0.6848349, 0.701952)
-bones/2/rotation = Quaternion(-0.06691983, -0.018839356, 0.27196962, 0.9597913)
-bones/3/rotation = Quaternion(0.029189482, 0.056656837, 0.26065463, 0.9633261)
-bones/4/rotation = Quaternion(-0.033279475, -0.19276169, 0.6848349, 0.701952)
-bones/5/rotation = Quaternion(-0.06691983, 0.018839356, -0.27196962, 0.9597913)
-bones/6/rotation = Quaternion(0.029189482, -0.056656837, -0.26065463, 0.9633261)
-bones/8/rotation = Quaternion(3.782122e-08, 0.68715465, 0.72651124, 1.7331582e-08)
-bones/11/rotation = Quaternion(2.4531047e-08, 0.68715465, 0.72651124, 3.8788983e-08)
+bones/0/position = Vector3(0, -0.0015269206, 0)
+bones/1/rotation = Quaternion(0.14739047, 0.03162347, -0.59485924, 0.7895686)
+bones/2/rotation = Quaternion(-0.011199113, -0.0043933564, 0.3826542, 0.92381334)
+bones/3/rotation = Quaternion(-0.12936902, 0.009910458, 0.29078954, 0.9479488)
+bones/4/rotation = Quaternion(0.14739047, -0.03162347, 0.59485924, 0.7895686)
+bones/5/rotation = Quaternion(-0.011199113, 0.0043933564, -0.3826542, 0.92381334)
+bones/6/rotation = Quaternion(-0.12936902, -0.009910458, -0.29078954, 0.9479488)
+bones/11/rotation = Quaternion(2.5226552e-08, 0.5424415, 0.8400937, 4.3963222e-08)
 
 [node name="Player" parent="." instance=ExtResource("3_qniev")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2, 0, 2)

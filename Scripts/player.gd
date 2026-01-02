@@ -14,12 +14,12 @@ func _unhandled_input(event):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		cursorVisible = true
 		mouseCounter += 1
-		print(mouseCounter)
+		#print(mouseCounter)
 	elif event.is_action_pressed("ui_cancel") and cursorVisible == true:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		cursorVisible = false
 		mouseCounter += 1
-		print(mouseCounter)
+		#print(mouseCounter)
 		
 func _physics_process(delta):
 	

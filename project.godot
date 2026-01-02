@@ -52,6 +52,10 @@ Shoot={
 ]
 }
 
+[input_devices]
+
+sensors/enable_gravity=true
+
 [physics]
 
 3d/default_gravity=20.0

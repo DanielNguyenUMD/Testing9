@@ -6,10 +6,7 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_sgiuc"]
 
 [node name="Bat_Mob" type="RigidBody3D"]
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-axis_lock_angular_z = true
-gravity_scale = 0.0
+lock_rotation = true
 script = ExtResource("1_sgiuc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -20,14 +17,14 @@ shape = SubResource("SphereShape3D_sgiuc")
 unique_name_in_owner = true
 
 [node name="Skeleton3D" parent="bat_model/Armature" index="0"]
-bones/0/position = Vector3(0, -0.017213492, 0)
-bones/1/rotation = Quaternion(0.04700867, 0.108474255, -0.61831766, 0.7769857)
-bones/2/rotation = Quaternion(-0.12781523, -0.044072103, 0.324965, 0.9360121)
-bones/3/rotation = Quaternion(-0.20125957, -0.0015858891, 0.23876026, 0.9499924)
-bones/4/rotation = Quaternion(0.04700867, -0.108474255, 0.61831766, 0.7769857)
-bones/5/rotation = Quaternion(-0.12781523, 0.044072103, -0.324965, 0.9360121)
-bones/6/rotation = Quaternion(-0.20125957, 0.0015858891, -0.23876026, 0.9499924)
-bones/8/rotation = Quaternion(3.425386e-08, 0.54991543, 0.83522034, 2.3376163e-08)
-bones/11/rotation = Quaternion(2.4195746e-08, 0.54991555, 0.83522034, 3.94922e-08)
+bones/0/position = Vector3(0, -0.0236, 0)
+bones/1/rotation = Quaternion(-0.035559773, 0.182469, -0.64319634, 0.7427915)
+bones/2/rotation = Quaternion(-0.18652794, -0.053943697, 0.27265665, 0.94231415)
+bones/3/rotation = Quaternion(-0.17314, 0.009579006, 0.21313573, 0.9615114)
+bones/4/rotation = Quaternion(-0.035559773, -0.182469, 0.64319634, 0.7427915)
+bones/5/rotation = Quaternion(-0.18652794, 0.053943697, -0.27265665, 0.94231415)
+bones/6/rotation = Quaternion(-0.17314, -0.009579006, -0.21313573, 0.9615114)
+bones/8/rotation = Quaternion(3.4422357e-08, 0.5970852, 0.80217785, 2.0567429e-08)
+bones/11/rotation = Quaternion(3.5270276e-08, 0.5970852, 0.80217785, 4.7306273e-08)
 
 [editable path="bat_model"]
