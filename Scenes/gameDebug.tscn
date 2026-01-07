@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6esqu8dwx4ed"]
+[gd_scene load_steps=8 format=3 uid="uid://b6esqu8dwx4ed"]
 
 [ext_resource type="Material" uid="uid://c16tlwnmk0j6a" path="res://Materials/BasicTerrain.tres" id="1_jiqfd"]
 [ext_resource type="Material" uid="uid://y87l148keva" path="res://Materials/BridgeTerrain.tres" id="2_a2jc6"]
 [ext_resource type="PackedScene" uid="uid://hhporc3aq18c" path="res://Scenes/bat_mob.tscn" id="3_a2jc6"]
 [ext_resource type="PackedScene" uid="uid://dexo37vqifhhy" path="res://Scenes/player.tscn" id="3_qniev"]
 [ext_resource type="Texture2D" uid="uid://cuyh8hew637ju" path="res://player/reticle.png" id="4_gxr5a"]
+[ext_resource type="PackedScene" uid="uid://jmjfudw56t36" path="res://MobSpawner3D.tscn" id="6_qniev"]
 
 [sub_resource type="Environment" id="Environment_80nbo"]
 background_mode = 1
@@ -106,15 +107,15 @@ material = ExtResource("1_jiqfd")
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.9305527, 0.65506697, 11.018199)
 
 [node name="Skeleton3D" parent="Bat_Mob/bat_model/Armature" index="0"]
-bones/0/position = Vector3(0, 0.01737839, 0)
-bones/1/rotation = Quaternion(0.2186338, -0.023894249, -0.5987637, 0.7701366)
-bones/2/rotation = Quaternion(0.12385935, 0.05733912, 0.4158208, 0.8991464)
-bones/3/rotation = Quaternion(0.019872665, 0.057389785, 0.34821796, 0.93544424)
-bones/4/rotation = Quaternion(0.2186338, 0.023894249, 0.5987637, 0.7701366)
-bones/5/rotation = Quaternion(0.12385935, -0.05733912, -0.4158208, 0.8991464)
-bones/6/rotation = Quaternion(0.019872665, -0.057389785, -0.34821796, 0.93544424)
-bones/8/rotation = Quaternion(2.4631744e-08, 0.5901107, 0.8073223, 2.3155065e-08)
-bones/11/rotation = Quaternion(2.9320944e-08, 0.5901107, 0.8073223, 3.858748e-08)
+bones/0/position = Vector3(0, -0.0007273676, 0)
+bones/1/rotation = Quaternion(-0.001394473, 0.16103156, -0.6907228, 0.7049602)
+bones/2/rotation = Quaternion(-0.0055090166, -0.001577446, 0.29220426, 0.95633876)
+bones/3/rotation = Quaternion(0.087905265, 0.07552622, 0.28371233, 0.9518802)
+bones/4/rotation = Quaternion(-0.001394473, -0.16103156, 0.6907228, 0.7049602)
+bones/5/rotation = Quaternion(-0.0055090166, 0.001577446, -0.29220426, 0.95633876)
+bones/6/rotation = Quaternion(0.087905265, -0.07552622, -0.28371233, 0.9518802)
+bones/8/rotation = Quaternion(3.830694e-08, 0.7016138, 0.71255744, 2.1937833e-08)
+bones/11/rotation = Quaternion(2.188545e-08, 0.7016138, 0.71255744, 3.5476216e-08)
 
 [node name="Player" parent="." instance=ExtResource("3_qniev")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2, 0, 2)
@@ -137,6 +138,9 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_gxr5a")
 expand_mode = 1
+
+[node name="MobSpawner3D" parent="." instance=ExtResource("6_qniev")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.7, 1.8000001, 23.9)
 
 [editable path="Bat_Mob"]
 [editable path="Bat_Mob/bat_model"]
