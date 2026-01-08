@@ -1,6 +1,6 @@
 extends RigidBody3D
 
-#@onready var anim_pill = %AnimationPlayer
+@onready var anim_pill = %AnimationPlayer
 
 
 func on_pickup(body):
@@ -9,5 +9,5 @@ func on_pickup(body):
 		print("Picked up pills")
 		queue_free()
 		
-#func _ready():
-	#anim_pill.play("Idle")
+func _ready():
+	anim_pill.play("Idle")
