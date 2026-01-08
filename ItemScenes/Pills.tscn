@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://dgmbmmdbmqdyk"]
 
-[ext_resource type="Script" uid="uid://bnsaxb2k4l4uu" path="res://ItemScenes/Pills.gd" id="1_dyrjr"]
+[ext_resource type="Script" uid="uid://bnsaxb2k4l4uu" path="res://Scripts/Pills.gd" id="1_dyrjr"]
 [ext_resource type="ArrayMesh" uid="uid://bp5cfhrlklcr8" path="res://mb_render.obj" id="1_ist8w"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eb41b"]

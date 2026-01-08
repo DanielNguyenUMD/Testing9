@@ -73,6 +73,7 @@ func take_damage():
 				var pills_item = PILLS.instantiate()
 				get_tree().current_scene.add_child(pills_item)
 				pills_item.global_position = %bat_model.global_position
+				pills_item.global_position.y -= 0.5
 		
 		
 		
