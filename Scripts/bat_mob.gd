@@ -5,7 +5,7 @@ var health = 3
 var spd = randf_range(2.0,4.0)
 var deathFlag = false
 var itemDropChance = 1#randi_range(1,2)
-var itemTypeChance = 1# randi_range(1,4)
+var itemTypeChance = 2# randi_range(1,4)
 
 @onready var player = get_node("/root/game/Player")
 
@@ -74,6 +74,16 @@ func take_damage():
 				get_tree().current_scene.add_child(pills_item)
 				pills_item.global_position = %bat_model.global_position
 				pills_item.global_position.y -= 0.5
+				
+			if(itemTypeChance == 2):
+				print("Dropped beans")
+				const BEANS= preload("res://ItemScenes/Beans.tscn")
+				var beans_item = BEANS.instantiate()
+				get_tree().current_scene.add_child(beans_item)
+				beans_item.global_position = %bat_model.global_position
+				beans_item.global_position.y -= 0.5
+				
+		
 		
 		
 		

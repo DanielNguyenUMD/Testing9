@@ -17,14 +17,14 @@ shape = SubResource("SphereShape3D_sgiuc")
 unique_name_in_owner = true
 
 [node name="Skeleton3D" parent="bat_model/Armature" index="0"]
-bones/0/position = Vector3(0, -0.0199903, 0)
-bones/1/rotation = Quaternion(-0.06088514, 0.21501331, -0.66571087, 0.71196306)
-bones/2/rotation = Quaternion(-0.15152805, -0.040479068, 0.2548529, 0.9541755)
-bones/3/rotation = Quaternion(-0.07610965, 0.029982653, 0.22751041, 0.9703337)
-bones/4/rotation = Quaternion(-0.06088514, -0.21501331, 0.66571087, 0.71196306)
-bones/5/rotation = Quaternion(-0.15152805, 0.040479068, -0.2548529, 0.9541755)
-bones/6/rotation = Quaternion(-0.07610965, -0.029982653, -0.22751041, 0.9703337)
-bones/8/rotation = Quaternion(4.003561e-08, 0.6495456, 0.76032263, 2.5313875e-08)
-bones/11/rotation = Quaternion(2.5274174e-08, 0.6495456, 0.76032263, 3.2733965e-08)
+bones/0/position = Vector3(0, -0.021755673, 0)
+bones/1/rotation = Quaternion(-0.05903156, 0.21112539, -0.66062546, 0.717994)
+bones/2/rotation = Quaternion(-0.16467607, -0.04442179, 0.25642112, 0.9513973)
+bones/3/rotation = Quaternion(-0.10065058, 0.024861958, 0.22220694, 0.96947175)
+bones/4/rotation = Quaternion(-0.05903156, -0.21112539, 0.66062546, 0.717994)
+bones/5/rotation = Quaternion(-0.16467607, 0.04442179, -0.25642112, 0.9513973)
+bones/6/rotation = Quaternion(-0.10065058, -0.024861958, -0.22220694, 0.96947175)
+bones/8/rotation = Quaternion(3.8784272e-08, 0.6380679, 0.7699802, 2.4251701e-08)
+bones/11/rotation = Quaternion(2.8012382e-08, 0.6380679, 0.7699802, 3.6169382e-08)
 
 [editable path="bat_model"]
