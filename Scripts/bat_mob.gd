@@ -4,6 +4,8 @@ var health = 3
 @onready var bat_model = %bat_model
 var spd = randf_range(2.0,4.0)
 var deathFlag = false
+var itemDropChance = randi_range(1,2)
+var itemTypeChance = randi_range(1,4)
 
 @onready var player = get_node("/root/game/Player")
 
@@ -11,6 +13,8 @@ func _ready():
 	print("I am the gravity on init. of mob ", gravity_scale)
 
 func _physics_process(_delta):
+	
+
 	
 		var horizontal_dir = Vector3(player.global_position.x - global_position.x, 0, player.global_position.z - global_position.z).normalized()	
 	
@@ -51,13 +55,24 @@ func _physics_process(_delta):
 	#bat_model.look_at(target, Vector3.UP)
 	#bat_model.rotate_y(PI)
 	
+func do_damage():
+	print("Necessary, only visible for debug purposes")	
 	
+
 func take_damage():
 	bat_model.hurt()
 	
 	health -= 1
 	if(health == 0):
 		queue_free()
+		if(itemDropChance == 1):
+			print("Item Type Chance: ", itemTypeChance)
+			if(itemTypeChance == 1):
+				print("Dropped pills")
+				const PILLS = preload("res://ItemScenes/Pills.tscn")
+				var pills_item = PILLS.instantiate()
+				get_tree().current_scene.add_child(pills_item)
+				pills_item.global_position = %bat_model.global_position
 		
 		
 		
