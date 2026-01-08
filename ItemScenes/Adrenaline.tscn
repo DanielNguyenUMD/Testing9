@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhll1kkkvltin"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7m5op"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_p7sa3"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5871l"]
+
+[node name="Adrenaline" type="RigidBody3D"]
+
+[node name="Hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.05, 0, 0, 0, -4.5896957e-08, 1.05, 0, -1.05, -4.5896957e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_7m5op")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+mesh = SubResource("CapsuleMesh_p7sa3")
+skeleton = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node3D"]
+root_node = NodePath("../MeshInstance3D")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_5871l")
+debug_color = Color(0.98752874, 0, 0.31704563, 0.41960785)
