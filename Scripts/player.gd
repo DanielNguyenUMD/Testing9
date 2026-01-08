@@ -127,9 +127,26 @@ func take_player_damage():
 	playerStats.playerHp -= 5
 	playerStats.playerHp = max(0, playerStats.playerHp)
 	healthBar.value = playerStats.playerHp
+	healthBarRecal()
 	print("the player has taken 5 damage")
 	
-
+func healthBarRecal():
+	if playerStats.playerHp <= 60 and playerStats.playerHp >= 40:
+		var fill = StyleBoxFlat.new()
+		fill.bg_color = Color.YELLOW
+		healthBar.add_theme_stylebox_override("fill", fill)
+		
+	if playerStats.playerHp > 60:
+		var fill = StyleBoxFlat.new()
+		fill.bg_color = Color.GREEN
+		healthBar.add_theme_stylebox_override("fill", fill)
+		
+	if playerStats.playerHp < 40:
+		var fill = StyleBoxFlat.new()
+		fill.bg_color = Color.RED
+		healthBar.add_theme_stylebox_override("fill", fill)
+		
+		
 	
 	
 		
