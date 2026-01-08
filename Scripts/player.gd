@@ -74,7 +74,7 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
-	if Input.is_action_pressed("Shoot") and %Timer.is_stopped(): 
+	if Input.is_action_pressed("Shoot") and %GunCooldown.is_stopped(): 
 		shoot_bullet()
 		
 	if playerStats.playerHp == 0:
@@ -110,7 +110,7 @@ func shoot_bullet():
 	var direction = -(target - bullet.global_position).normalized() #if i shoot backwards, flip the sign
 	bullet.global_transform.basis = Basis.looking_at(direction, Vector3.UP)
 	
-	%Timer.start()
+	%GunCooldown.start()
 	
 func on_collision(body):
 	
@@ -120,6 +120,8 @@ func on_collision(body):
 	
 	if body.has_method("on_pickup") and body.name == "Pills":
 		print("Healed")
+		playerStats.playerHp += 5
+		healthBar.value = playerStats.playerHp
 	
 func take_player_damage():
 	playerStats.playerHp -= 5
@@ -135,7 +137,7 @@ func _ready():
 	print("Loaded children: ", get_tree().root.get_children())
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	healthBar.max_value = playerStats.maxHp
-	healthBar.valuue = playerStats.playerHp
+	healthBar.value = playerStats.playerHp
 	healthBar.min_value = 0
 	
 	var fill = StyleBoxFlat.new()
