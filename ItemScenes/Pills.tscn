@@ -1,12 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgmbmmdbmqdyk"]
+[gd_scene load_steps=9 format=3 uid="uid://dgmbmmdbmqdyk"]
 
+[ext_resource type="Script" uid="uid://bnsaxb2k4l4uu" path="res://ItemScenes/Pills.gd" id="1_dyrjr"]
 [ext_resource type="ArrayMesh" uid="uid://bp5cfhrlklcr8" path="res://ItemScenes/mb_render.obj" id="1_ist8w"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eb41b"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ist8w"]
+albedo_color = Color(0.74978, 0.74978, 0.74977994, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dyrjr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8c57p"]
+albedo_color = Color(0.8593327, 0.14875424, 0.33393273, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t1gvq"]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8yxgt"]
 
 [node name="Pills" type="RigidBody3D"]
+script = ExtResource("1_dyrjr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0.5, 0)
@@ -18,6 +30,10 @@ shape = SubResource("CapsuleShape3D_eb41b")
 transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
 mesh = ExtResource("1_ist8w")
 skeleton = NodePath("../../Area3D/CollisionShape3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_ist8w")
+surface_material_override/1 = SubResource("StandardMaterial3D_dyrjr")
+surface_material_override/2 = SubResource("StandardMaterial3D_8c57p")
+surface_material_override/3 = SubResource("StandardMaterial3D_t1gvq")
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0.5, 0)
@@ -25,3 +41,7 @@ transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0.5, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("CapsuleShape3D_8yxgt")
 debug_color = Color(0.84705883, 0.26666668, 0.34117648, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+root_node = NodePath("../Area3D/CollisionShape3D")
