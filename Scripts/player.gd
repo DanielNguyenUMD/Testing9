@@ -3,6 +3,25 @@ extends CharacterBody3D
 var cursorVisible = false
 var mouseCounter = 0
 
+var playerStats = {
+	"playerHp": 100.0,
+	"maxHp": 100.0,
+	"spd": 5.0
+}
+
+var itemStats = {
+	"beans": 5,
+	"pills": 5
+}
+
+var itemCounts = {
+	"beansCount": 0,
+	"adrenCount": 0,
+	"timeCount": 0
+}
+
+
+
 #ONLY EDIT FOR CAMERA DIRECTION AND MOUSE CURSOR
 
 func _unhandled_input(event):
@@ -54,6 +73,9 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("Shoot") and %Timer.is_stopped(): 
 		shoot_bullet()
+		
+	if playerStats.playerHp == 0:
+		queue_free()
 	
 	
 func shoot_bullet():
@@ -87,7 +109,9 @@ func shoot_bullet():
 	
 	%Timer.start()
 	
-	
+func on_collision(body):
+	if body.has_method("on_pickup") and body.name == "Pills":
+		print("Healed")
 	
 	
 	
@@ -96,6 +120,7 @@ func shoot_bullet():
 func _ready():
 	print("Loaded children: ", get_tree().root.get_children())
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
 	
 	
 	
