@@ -41,7 +41,7 @@ grow_vertical = 2
 texture = ExtResource("4_fkybt")
 expand_mode = 1
 
-[node name="Timer" type="Timer" parent="."]
+[node name="GunCooldown" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 0.2
 one_shot = true
@@ -52,3 +52,12 @@ transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 1, 0)
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("CapsuleShape3D_6t5aa")
 debug_color = Color(0.956317, 0.12112092, 0.43777147, 0.41960785)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="DamageTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area3D" to="." method="on_collision"]

@@ -20,6 +20,9 @@ var itemCounts = {
 	"timeCount": 0
 }
 
+@onready var healthBar = %ProgressBar
+@onready var dmgTime = %DamageTimer
+@onready var player = get_tree().current_scene
 
 
 #ONLY EDIT FOR CAMERA DIRECTION AND MOUSE CURSOR
@@ -110,16 +113,35 @@ func shoot_bullet():
 	%Timer.start()
 	
 func on_collision(body):
+	
+	if body.has_method("do_damage"):
+		take_player_damage()
+	
+	
 	if body.has_method("on_pickup") and body.name == "Pills":
 		print("Healed")
 	
+func take_player_damage():
+	playerStats.playerHp -= 5
+	playerStats.playerHp = max(0, playerStats.playerHp)
+	healthBar.value = playerStats.playerHp
+	print("the player has taken 5 damage")
 	
+
 	
 	
 		
 func _ready():
 	print("Loaded children: ", get_tree().root.get_children())
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	healthBar.max_value = playerStats.maxHp
+	healthBar.valuue = playerStats.playerHp
+	healthBar.min_value = 0
+	
+	var fill = StyleBoxFlat.new()
+	fill.bg_color = Color.GREEN
+	healthBar.add_theme_stylebox_override("fill", fill)
+	
 	
 	
 	
