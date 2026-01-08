@@ -83,6 +83,15 @@ func take_damage():
 				beans_item.global_position = %bat_model.global_position
 				beans_item.global_position.y -= 0.5
 				
+			if(itemTypeChance == 3):
+				print("Dropped adrenaline")
+				const ADREN = preload("res://ItemScenes/Adrenaline.tscn")
+				var adren_item = ADREN.instantiate()
+				get_tree().current_scene.add_child(adren_item)
+				adren_item.global_position = %bat_model.global_position
+				adren_item.global_position.y -= 0.5
+				
+				
 		
 		
 		

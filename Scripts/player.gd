@@ -46,9 +46,6 @@ func _unhandled_input(event):
 func _physics_process(delta):
 	
 	#ONLY EDIT BELOW FOR BASIC PLAYER MOVEMENT
-		
-	var spd = 7
-	
 	var input_dir_2D = Input.get_vector(
 		"move_left", "move_right", "move_forward", "move_back"
 	)
@@ -59,8 +56,8 @@ func _physics_process(delta):
 	
 	var direction = transform.basis * input_dir_3D
 	
-	velocity.x = direction.x * spd
-	velocity.z = direction.z * spd
+	velocity.x = direction.x * playerStats.spd
+	velocity.z = direction.z * playerStats.spd
 	
 	#ONLY EDIT BELOW FOR JUMP/FALL
 	
@@ -124,13 +121,16 @@ func on_collision(body):
 		healthBar.value = playerStats.playerHp
 		
 	if body.has_method("on_pickup") and body.name == "Beans":
-		print("Max HP incresed!")
+		print("Max HP increased!")
 		playerStats.maxHp += 5
 		healthBar.max_value = playerStats.maxHp
 		playerStats.playerHp += 5
 		healthBar.value = playerStats.playerHp
 		healthBarRecal()
-		itemCounts.beansCount += 1
+		
+	if body.has_method("on_pickup") and body.name == "Adrenaline":
+		print("Speed increased!")
+		playerStats.spd += 1
 	
 func take_player_damage():
 	playerStats.playerHp -= 5
