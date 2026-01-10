@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dexo37vqifhhy"]
 
 [ext_resource type="PackedScene" uid="uid://chjrhhjvxun3r" path="res://player/simple_gun/gun_model.glb" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://qn170akjntot" path="res://Scripts/player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://deh8bqfdw0c8o" path="res://Scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://cuyh8hew637ju" path="res://player/reticle.png" id="4_fkybt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]

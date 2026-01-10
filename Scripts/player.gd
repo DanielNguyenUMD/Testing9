@@ -122,15 +122,19 @@ func on_collision(body):
 		
 	if body.has_method("on_pickup") and body.name == "Beans":
 		print("Max HP increased!")
-		playerStats.maxHp += 5
-		healthBar.max_value = playerStats.maxHp
+		#playerStats.maxHp += 5
+		#healthBar.max_value = playerStats.maxHp
 		playerStats.playerHp += 5
+		playerStats.playerHp = max(0, player.maxHp)
 		healthBar.value = playerStats.playerHp
+		print(playerStats.maxHp)
+		print(playerStats.playerHp)
 		healthBarRecal()
 		
 	if body.has_method("on_pickup") and body.name == "Adrenaline":
 		print("Speed increased!")
-		playerStats.spd += 1
+		playerStats.spd += 5
+		healthBarRecal()
 	
 func take_player_damage():
 	playerStats.playerHp -= 5

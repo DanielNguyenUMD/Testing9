@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dgmbmmdbmqdyk"]
+[gd_scene load_steps=9 format=3 uid="uid://dgmbmmdbmqdyk"]
 
 [ext_resource type="Script" uid="uid://bnsaxb2k4l4uu" path="res://Scripts/Pills.gd" id="1_dyrjr"]
 [ext_resource type="ArrayMesh" uid="uid://bp5cfhrlklcr8" path="res://mb_render.obj" id="1_ist8w"]
@@ -7,13 +7,6 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ist8w"]
 albedo_color = Color(0.74978, 0.74978, 0.74977994, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dyrjr"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8c57p"]
-albedo_color = Color(0.8593327, 0.14875424, 0.33393273, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t1gvq"]
 
 [sub_resource type="Animation" id="Animation_dyrjr"]
 resource_name = "Idle"
@@ -29,7 +22,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 6.2831855, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 4.537856, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -80,6 +73,12 @@ _data = {
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8yxgt"]
 
 [node name="Pills" type="RigidBody3D"]
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
 script = ExtResource("1_dyrjr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -94,9 +93,6 @@ transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
 mesh = ExtResource("1_ist8w")
 skeleton = NodePath("../../Area3D/CollisionShape3D")
 surface_material_override/0 = SubResource("StandardMaterial3D_ist8w")
-surface_material_override/1 = SubResource("StandardMaterial3D_dyrjr")
-surface_material_override/2 = SubResource("StandardMaterial3D_8c57p")
-surface_material_override/3 = SubResource("StandardMaterial3D_t1gvq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Node3D"]
 unique_name_in_owner = true
@@ -104,7 +100,6 @@ root_node = NodePath("../../Area3D/CollisionShape3D")
 libraries = {
 &"": SubResource("AnimationLibrary_t1gvq")
 }
-autoplay = "Idle"
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.19999999, 0)
