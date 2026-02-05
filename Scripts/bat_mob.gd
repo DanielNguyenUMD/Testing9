@@ -4,8 +4,8 @@ var health = 3
 @onready var bat_model = %bat_model
 var spd = randf_range(2.0,4.0)
 var deathFlag = false
-var itemDropChance = 1#randi_range(1,2)
-var itemTypeChance = 2#randi_range(1,3)
+var itemDropChance = randi_range(1,2)
+var itemTypeChance = randi_range(1,3)
 
 @onready var player = get_node("/root/game/Player")
 

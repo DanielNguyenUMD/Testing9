@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dgmbmmdbmqdyk"]
+[gd_scene load_steps=12 format=3 uid="uid://dgmbmmdbmqdyk"]
 
 [ext_resource type="Script" uid="uid://bnsaxb2k4l4uu" path="res://Scripts/Pills.gd" id="1_dyrjr"]
 [ext_resource type="ArrayMesh" uid="uid://bp5cfhrlklcr8" path="res://mb_render.obj" id="1_ist8w"]
@@ -7,6 +7,13 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ist8w"]
 albedo_color = Color(0.74978, 0.74978, 0.74977994, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dyrjr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8c57p"]
+albedo_color = Color(0.8313138, 0.04834929, 0.17351666, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t1gvq"]
 
 [sub_resource type="Animation" id="Animation_dyrjr"]
 resource_name = "Idle"
@@ -93,6 +100,9 @@ transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
 mesh = ExtResource("1_ist8w")
 skeleton = NodePath("../../Area3D/CollisionShape3D")
 surface_material_override/0 = SubResource("StandardMaterial3D_ist8w")
+surface_material_override/1 = SubResource("StandardMaterial3D_dyrjr")
+surface_material_override/2 = SubResource("StandardMaterial3D_8c57p")
+surface_material_override/3 = SubResource("StandardMaterial3D_t1gvq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Node3D"]
 unique_name_in_owner = true
