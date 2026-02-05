@@ -17,9 +17,11 @@ var itemStats = {
 var itemCounts = {
 	"beansCount": 0,
 	"adrenCount": 0,
-	"timeCount": 0
+	"timeCount": 0,
+	"harpyCount": 0
 }
 
+@onready var numJumps = 0
 @onready var healthBar = %ProgressBar
 @onready var dmgTime = %DamageTimer
 @onready var player = get_tree().current_scene
@@ -65,7 +67,11 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y += 5.0
 	elif Input.is_action_just_pressed("jump") and velocity.y > 0.0:
-		velocity.y = 5.0
+		if(itemCounts.harpyCount > 1):
+			velocity.y = 3.5
+			numJumps -= 1
+			
+		#velocity.y = 5.0
 	
 	#END JUMP/FALL
 	
@@ -133,7 +139,11 @@ func on_collision(body):
 		print("Speed increased!")
 		playerStats.spd += 0
 		healthBarRecal()
-	
+		
+	if body.has_method("on_pickup") and body.name == "HarpyFeather":
+		print("$ of Jumps Increased!")
+		itemCounts.harpyCount += 1
+			
 func take_player_damage():
 	playerStats.playerHp -= 5
 	playerStats.playerHp = max(0, playerStats.playerHp)

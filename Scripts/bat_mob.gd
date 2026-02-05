@@ -4,8 +4,8 @@ var health = 3
 @onready var bat_model = %bat_model
 var spd = randf_range(2.0,4.0)
 var deathFlag = false
-var itemDropChance = randi_range(1,2)
-var itemTypeChance = randi_range(1,3)
+var itemDropChance = 1#randi_range(1,2)
+var itemTypeChance = 4#randi_range(1,3)
 
 @onready var player = get_node("/root/game/Player")
 
@@ -90,6 +90,14 @@ func take_damage():
 				get_tree().current_scene.add_child(adren_item)
 				adren_item.global_position = %bat_model.global_position
 				adren_item.global_position.y -= 0.5
+				
+			if(itemTypeChance == 4):
+				print("Dropped harpy feather")
+				const HARPY = preload("res://ItemScenes/HarpyFeather.tscn")
+				var harpy_item = HARPY.instantiate()
+				get_tree().current_scene.add_child(harpy_item)
+				harpy_item.global_position = %bat_model.global_position
+				harpy_item.global_position.y -= 0.5
 				
 				
 		
