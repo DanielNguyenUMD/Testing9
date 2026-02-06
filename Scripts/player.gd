@@ -21,7 +21,7 @@ var itemCounts = {
 	"harpyCount": 0
 }
 
-@onready var numJumps = 0
+@onready var numTimesJump = 1
 @onready var healthBar = %ProgressBar
 @onready var dmgTime = %DamageTimer
 @onready var player = get_tree().current_scene
@@ -64,12 +64,28 @@ func _physics_process(delta):
 	#ONLY EDIT BELOW FOR JUMP/FALL
 	
 	velocity.y -= 9.8 * delta
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if is_on_floor():
+		numTimesJump = itemCounts.harpyCount
+	if Input.is_action_just_pressed("jump") and is_on_floor(): #i jump on ground checl
 		velocity.y += 5.0
-	elif Input.is_action_just_pressed("jump") and velocity.y > 0.0:
-		if(itemCounts.harpyCount > 1):
-			velocity.y = 3.5
-			numJumps -= 1
+	elif (Input.is_action_just_pressed("jump") and velocity.y > 0.0):
+		if(itemCounts.harpyCount > 0):
+			if(numTimesJump == 0):
+				print("I am called to stop infinite jump")
+				velocity.y = 5.0
+			elif(numTimesJump > 1):
+				velocity.y += 5
+				numTimesJump -= 1 # i am midair
+				print("Number of jumps is: ", numTimesJump)
+	elif(Input.is_action_just_pressed("jump") and velocity.y > 0.0 and !is_on_floor()):
+		print("I have entered this state.")
+		if(numTimesJump == 0):
+			velocity.y = 5.0
+		elif(numTimesJump > 1):
+				velocity.y += 5
+				numTimesJump -= 1 # i am midair
+				print("Number of jumps is: ", numTimesJump)
+		
 			
 		#velocity.y = 5.0
 	
@@ -143,6 +159,7 @@ func on_collision(body):
 	if body.has_method("on_pickup") and body.name == "HarpyFeather":
 		print("$ of Jumps Increased!")
 		itemCounts.harpyCount += 1
+		numTimesJump = itemCounts.harpyCount
 			
 func take_player_damage():
 	playerStats.playerHp -= 5

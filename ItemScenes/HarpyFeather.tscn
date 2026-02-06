@@ -9,10 +9,16 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_03tw8"]
 
 [node name="HarpyFeather" type="RigidBody3D"]
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
 script = ExtResource("1_sa231")
 
 [node name="Hitbox" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0, 0, 0)
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
 shape = SubResource("BoxShape3D_wdswn")
 
 [node name="Node3D" type="Node3D" parent="."]
@@ -27,7 +33,7 @@ skeleton = NodePath("../..")
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1.07, 0, 0, 0, 1.07, 0, 0, 0, 1.07, 0, 0, 0)
+transform = Transform3D(1.15, 0, 0, 0, 1.15, 0, 0, 0, 1.15, 0, 0, 0)
 shape = SubResource("BoxShape3D_03tw8")
 debug_color = Color(0.89277786, 0.1407663, 0.3248488, 0.41960785)
 
