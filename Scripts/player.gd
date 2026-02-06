@@ -68,21 +68,13 @@ func _physics_process(delta):
 		numTimesJump = itemCounts.harpyCount
 	if Input.is_action_just_pressed("jump") and is_on_floor(): #i jump on ground checl
 		velocity.y += 5.0
-	elif (Input.is_action_just_pressed("jump") and velocity.y > 0.0):
+	elif (Input.is_action_just_pressed("jump") and (velocity.y > 0.0 or !is_on_floor())):
 		if(itemCounts.harpyCount > 0):
 			if(numTimesJump == 0):
 				print("I am called to stop infinite jump")
 				velocity.y = 5.0
 			elif(numTimesJump > 1):
-				velocity.y += 5
-				numTimesJump -= 1 # i am midair
-				print("Number of jumps is: ", numTimesJump)
-	elif(Input.is_action_just_pressed("jump") and velocity.y > 0.0 and !is_on_floor()):
-		print("I have entered this state.")
-		if(numTimesJump == 0):
-			velocity.y = 5.0
-		elif(numTimesJump > 1):
-				velocity.y += 5
+				velocity.y += 8.5
 				numTimesJump -= 1 # i am midair
 				print("Number of jumps is: ", numTimesJump)
 		
